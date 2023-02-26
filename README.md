@@ -22,4 +22,4 @@ There are 3 main folders in this repository: data, notebooks and utils. Data fol
 Depending on the nature of the project, the main findings of the code will be published to medium as blogs where appropriate. The blog for the first project can be found [here](https://medium.com/@jessicalzy/want-to-be-an-airbnb-host-how-does-some-top-tips-sound-70357923ee87).
 
 ## Licensing, Authors, and Acknowledgements
-Credit must give to Airbnb for the data. The Licensing for the data and other descriptive information can be found at the Kaggle link available [here](https://www.kaggle.com/datasets/airbnb/boston). Otherwise, feel free to use the code here as you would like!
+For the first project, credit must give to Airbnb for the data. The Licensing for the data and other descriptive information used in the first project can be found at the Kaggle link available [here](https://www.kaggle.com/datasets/airbnb/boston). Otherwise, feel free to use the code here as you would like! This section will be updated as the course progresses.
