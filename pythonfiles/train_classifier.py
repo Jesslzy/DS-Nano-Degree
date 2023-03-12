@@ -86,7 +86,8 @@ def build_model():
     ])
     
     parameters = {
-              'clf_multi__estimator__min_samples_split': [2, 3]
+              'clf_multi__estimator__min_samples_split': [2, 3],
+              'clf_multi__estimator__min_samples_leaf': [2, 3]
 
     }
 
