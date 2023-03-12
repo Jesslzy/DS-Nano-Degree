@@ -26,14 +26,14 @@ nltk.download('words')
 nltk.download('averaged_perceptron_tagger')
 
 
-def load_data(database_filename):
+def load_data(database_filepath):
         
     """
     Load dataset from SQL database
     """
     
     # load data from database
-    engine = create_engine('sqlite:///database_filename')
+    engine = create_engine('sqlite:///database_filepath')
     df = pd.read_sql("SELECT * FROM disaster_response", engine)
 
     X = df['message'].astype(str).values
