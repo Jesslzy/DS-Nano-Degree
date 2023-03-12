@@ -95,7 +95,7 @@ def build_model():
     return cv
 
 
-def evaluate_model(model, X_test, Y_test, target_names):
+def evaluate_model(model, X_test, y_test, target_names):
     
     # Predict on test set
     y_pred = model.predict(X_test)
