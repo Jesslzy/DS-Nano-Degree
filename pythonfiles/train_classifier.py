@@ -84,7 +84,14 @@ def build_model():
         ('clf_multi',MultiOutputClassifier(RandomForestClassifier()))
     ])
     
-    return pipeline
+    parameters = {
+              'clf_multi__estimator__min_samples_split': [2, 3]
+
+    }
+
+    cv = GridSearchCV(pipeline, param_grid=parameters)
+    
+    return cv
 
 
 def evaluate_model(model, X_test, Y_test, target_names):
@@ -123,7 +130,7 @@ def main():
         model.fit(X_train, Y_train)
         
         print('Evaluating model...')
-        evaluate_model(model, X_test, Y_test, category_names)
+        evaluate_model(model, X_test, Y_test, target_names)
 
         print('Saving model...\n    MODEL: {}'.format(model_filepath))
         save_model(model, model_filepath)
