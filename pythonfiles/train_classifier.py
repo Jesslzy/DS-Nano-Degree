@@ -121,7 +121,7 @@ def main():
     if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
-        X, y, category_names = load_data(database_filepath)
+        X, y, target_names = load_data(database_filepath)
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3, random_state = 42)
         
         print('Building model...')
