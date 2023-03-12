@@ -33,8 +33,9 @@ def load_data(database_filepath):
     """
     
     # load data from database
-    engine = create_engine('sqlite:///database_filepath')
-    df = pd.read_sql("SELECT * FROM disaster_response", engine)
+    table = 'disaster_response'
+    engine = create_engine('sqlite:///{}'.format(database_filepath))
+    df = pd.read_sql_table(table, engine)
 
     X = df['message'].astype(str).values
     y = df.drop(['message', 'original', 'genre', 'id'], axis = 1).values
@@ -120,17 +121,17 @@ def main():
     if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
-        X, Y, category_names = load_data(database_filepath)
+        X, y, category_names = load_data(database_filepath)
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3, random_state = 42)
         
         print('Building model...')
         model = build_model()
         
         print('Training model...')
-        model.fit(X_train, Y_train)
+        model.fit(X_train, y_train)
         
         print('Evaluating model...')
-        evaluate_model(model, X_test, Y_test, target_names)
+        evaluate_model(model, X_test, y_test, target_names)
 
         print('Saving model...\n    MODEL: {}'.format(model_filepath))
         save_model(model, model_filepath)
